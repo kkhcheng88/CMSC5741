@@ -3,8 +3,7 @@
 # mkdir data
 # python twitter_stream_download.py -q apple -d data
 #
-# It will produce the list of tweets for the query "apple"
-# in the file data/stream_apple.json
+# It will produce the list of tweets in the file data/stream_apple.json
 
 import tweepy
 from tweepy import Stream
@@ -91,4 +90,6 @@ if __name__ == '__main__':
     api = tweepy.API(auth)
 
     twitter_stream = Stream(auth, MyListener(args.data_dir, args.query))
+    
+    # Change the attribute track to query other movies
     twitter_stream.filter(track=['#DoctorStrange'])
